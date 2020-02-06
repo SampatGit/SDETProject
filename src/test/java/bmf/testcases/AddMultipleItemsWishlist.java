@@ -18,10 +18,8 @@ public class AddMultipleItemsWishlist extends TestManager {
 	WishListPage addWishList = new WishListPage();
 	
 	@Test
-	
 	public void verifyWishList() throws InterruptedException, JsonMappingException, JsonProcessingException {
 		chair.chairDetails();
-		chair.AddChairToCart();
 		addWishList.addToWIshList();
 		sofa.detailsSofa();
 		sofa.addSofa();

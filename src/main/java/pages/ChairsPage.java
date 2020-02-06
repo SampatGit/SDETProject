@@ -40,7 +40,7 @@ public class ChairsPage extends TestManager {
 		element.click();
 		Thread.sleep(7000);
 		
-		List<WebElement> chairs = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='ng-star-inserted']")));
+		List<WebElement> chairs = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ul[@class='ul1']")));
 		Thread.sleep(2000);
 		ListIterator<WebElement> chairIt = chairs.listIterator();
 		while(chairIt.hasNext()) {

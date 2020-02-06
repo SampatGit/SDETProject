@@ -15,7 +15,7 @@ public class VerifyAddCart extends TestManager{
     
 	@Test
 	public void VerifyElement() throws InterruptedException {
-		verifyLogin();
+		
 		chair.chairDetails();
 		chair.AddChairToCart();
 		cart.VerifyItemAdded();

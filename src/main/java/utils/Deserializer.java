@@ -27,7 +27,7 @@ public class Deserializer extends StdDeserializer<JsonPojo> {
     @Override
     public JsonPojo deserialize(final JsonParser jp, final DeserializationContext ctxt) throws IOException, JsonProcessingException {
         final JsonNode node = jp.getCodec()
-            .readTree(jp);
+            .readTree(jp);. 
         final int id = (Integer) ((IntNode) node.get("userId")).numberValue();
         final String Name = node.get("name")
             .asText();

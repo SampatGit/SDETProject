@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.file.CopyOption;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -34,7 +36,8 @@ public class Reporting extends DriverSource {
 	private static ExtentReports extent;
 	private static ThreadLocal parentTest = new ThreadLocal();
 	private static ThreadLocal test1 = new ThreadLocal();
-	String Screenshots = "C:\\Users\\Admin\\eclipse-workspace\\SDETProject-master\\SDETProject-master\\test-output\\Screenshots";
+	String fileName = new SimpleDateFormat("MMddHHmm'.png'").format(new Date());
+	String Screenshots = "D:\\Screenshots\\"+fileName;
 
 	@BeforeSuite
 	public void beforeSuite() {
