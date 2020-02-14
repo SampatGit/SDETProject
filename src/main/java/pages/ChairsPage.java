@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,9 +16,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import testResources.TestManager;
+import utils.DataReader;
 import resources.Common;
 
-import resources.TestManager;
+
 
 
 public class ChairsPage extends TestManager {
@@ -28,19 +31,21 @@ public class ChairsPage extends TestManager {
 	String chairLocator = "//b[contains(text(),'"+desiredChair+"')]";
 	String addCartLocator = "//button[@class='btn btn-outline-success space ng-star-inserted']";
 	public static final String CartLocator = "//span[@class='mat-button-wrapper' and text()=' Cart ']";
+	
+	BasePage basePage = new BasePage();
+	DataReader dataReader = new DataReader();
 
 
 
 
-	public void chairDetails() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(getDriverInstance(),30);
+	public void chairDetails() throws Exception {
 		Thread.sleep(10000);
-		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Common.chairIcon)));
+		WebElement element = basePage.clickWebElement("xpath", dataReader.getData("chairIcon"));
 		Thread.sleep(1000);
 		element.click();
 		Thread.sleep(7000);
 		
-		List<WebElement> chairs = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ul[@class='ul1']")));
+		List<WebElement> chairs = basePage.selectElements("xpath",  dataReader.getData("allChairs"));
 		Thread.sleep(2000);
 		ListIterator<WebElement> chairIt = chairs.listIterator();
 		while(chairIt.hasNext()) {
@@ -67,9 +72,12 @@ public class ChairsPage extends TestManager {
 		}
 
 	}
+	
+	
 
 	public void AddChairToCart() throws InterruptedException {
-
+		
+		Properties props = new Properties();
 		Thread.sleep(2000);
 		WebDriverWait wait = new WebDriverWait(getDriverInstance(),20);
 

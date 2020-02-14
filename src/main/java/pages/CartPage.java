@@ -2,6 +2,7 @@ package pages;
 
 import static org.testng.Assert.assertTrue;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -16,8 +17,8 @@ import io.restassured.response.Response;
 import resources.Common;
 import resources.DriverSource;
 import resources.SpecBuilder;
-import resources.TestManager;
-
+import bmf.testcases.*;
+import testResources.TestManager;
 public class CartPage extends TestManager {
 	
 	SpecBuilder builder = new SpecBuilder();
@@ -32,7 +33,7 @@ public class CartPage extends TestManager {
 		assertTrue(cart.getText().contains(ChairsPage.desiredChair));
 	}
 	
-	@Test
+
 	public void verifyItemsInCart() throws JsonMappingException, JsonProcessingException {
 		int UserId = getres.GetUserID();
 		Response respone = builder.setRequest(Common.CartBasePath+UserId);

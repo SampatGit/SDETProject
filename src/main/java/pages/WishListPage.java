@@ -1,6 +1,7 @@
 package pages;
 
 import static org.testng.Assert.assertEquals;
+
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.By;
@@ -16,7 +17,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import io.restassured.response.Response;
 import resources.Common;
 import resources.SpecBuilder;
-import resources.TestManager;
+import testResources.TestManager;
 
 public class WishListPage extends TestManager {
 	
@@ -28,19 +29,19 @@ public class WishListPage extends TestManager {
 	GetResponse resp = new GetResponse();
 	
 	public void addToWIshList() {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(getDriverInstance(), 20);
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(wishListBtn)));
 		element.click();
-		assertTrue(driver.getPageSource().contains(Common.logText));
-	}
+	//	assertTrue(driver.getPageSource().contains(Common.logText));
+	}	
 	
 	public void verifyWishList() {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(getDriverInstance(), 20);
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(wishlistIcon)));
 		element.click();
 	}
 	
-	@Test
+	
 	public void verifyWishListAPI(String desName) throws JsonMappingException, JsonProcessingException {
 		int UserId = resp.GetUserID();
 		Response resp = builder.setRequest(Common.WishListBasePath+UserId);

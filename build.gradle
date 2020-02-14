@@ -30,7 +30,7 @@ dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.141.59'
     
     //This dependency is for Selenium to use chrome driver
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'	
     
     //Dependency for TestNG
     testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
@@ -52,6 +52,12 @@ dependencies {
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.10.2'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.2'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.10.2'
+    
+    //firefox driver
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.141.59'
+    
+    //Chrome driver
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
     
     
     
